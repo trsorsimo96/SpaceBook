@@ -1,0 +1,97 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAirlineLabel" jhiTranslate="spaceBookApp.airline.home.createOrEditLabel">Create or edit a Airline</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!airline.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="airline.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                [(ngModel)]="airline.code" required/>
+            <div [hidden]="!(editForm.controls.code?.dirty && editForm.controls.code?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.code?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="airline.name" required/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="airline.description" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.logo" for="field_logo">Logo</label>
+            <div>
+                <div *ngIf="airline.logo" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(airline.logoContentType, airline.logo)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{airline.logoContentType}}, {{byteSize(airline.logo)}}</span>
+                    <button type="button" (click)="airline.logo=null;airline.logoContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_logo" (change)="setFileData($event, airline, 'logo', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                [(ngModel)]="airline.logo" required/>
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                [(ngModel)]="airline.logoContentType" />
+            <div [hidden]="!(editForm.controls.logo?.dirty && editForm.controls.logo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.logo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.member" for="field_member">Member</label>
+            <select class="form-control" id="field_member" name="member" [(ngModel)]="airline.member" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="groupAirlineAllianceOption.id === airline.member?.id ? airline.member : groupAirlineAllianceOption" *ngFor="let groupAirlineAllianceOption of groupairlinealliances; trackBy: trackGroupAirlineAllianceById">{{groupAirlineAllianceOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.airline" for="field_airline">Airline</label>
+            <select class="form-control" id="field_airline" name="airline" [(ngModel)]="airline.airline" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="segmentOption.id === airline.airline?.id ? airline.airline : segmentOption" *ngFor="let segmentOption of segments; trackBy: trackSegmentById">{{segmentOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.airline.airline" for="field_airline">Airline</label>
+            <select class="form-control" id="field_airline" name="airline" [(ngModel)]="airline.airline" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="configFeesOption.id === airline.airline?.id ? airline.airline : configFeesOption" *ngFor="let configFeesOption of configfees; trackBy: trackConfigFeesById">{{configFeesOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

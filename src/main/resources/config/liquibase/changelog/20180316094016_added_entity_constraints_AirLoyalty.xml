@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AirLoyalty.
+    -->
+    <changeSet id="20180316094016-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="card_id"
+                                 baseTableName="air_loyalty"
+                                 constraintName="fk_air_loyalty_card_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="passenger"/>
+
+        <addForeignKeyConstraint baseColumnNames="card_id"
+                                 baseTableName="air_loyalty"
+                                 constraintName="fk_air_loyalty_card_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="airline"/>
+
+    </changeSet>
+</databaseChangeLog>

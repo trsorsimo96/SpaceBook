@@ -1,0 +1,57 @@
+
+<div *ngIf="agency">
+    <h2><span jhiTranslate="spaceBookApp.agency.detail.title">Agency</span> {{agency.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.agency.pCC">P CC</span></dt>
+        <dd>
+            <span>{{agency.pCC}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.name">Name</span></dt>
+        <dd>
+            <span>{{agency.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.codeIata">Code Iata</span></dt>
+        <dd>
+            <span>{{agency.codeIata}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.isIata">Is Iata</span></dt>
+        <dd>
+            <span>{{agency.isIata}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.logo">Logo</span></dt>
+        <dd>
+            <div *ngIf="agency.logo">
+                <a (click)="openFile(agency.logoContentType, agency.logo)" jhiTranslate="entity.action.open">open</a>
+                {{agency.logoContentType}}, {{byteSize(agency.logo)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.email">Email</span></dt>
+        <dd>
+            <span>{{agency.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.phone">Phone</span></dt>
+        <dd>
+            <span>{{agency.phone}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agency.address">Address</span></dt>
+        <dd>
+            <span>{{agency.address}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'agency/'+ agency.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

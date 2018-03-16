@@ -1,0 +1,114 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAgencyLabel" jhiTranslate="spaceBookApp.agency.home.createOrEditLabel">Create or edit a Agency</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!agency.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="agency.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.pCC" for="field_pCC">P CC</label>
+            <input type="text" class="form-control" name="pCC" id="field_pCC"
+                [(ngModel)]="agency.pCC" required/>
+            <div [hidden]="!(editForm.controls.pCC?.dirty && editForm.controls.pCC?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.pCC?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="agency.name" required/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.codeIata" for="field_codeIata">Code Iata</label>
+            <input type="text" class="form-control" name="codeIata" id="field_codeIata"
+                [(ngModel)]="agency.codeIata" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.isIata" for="field_isIata">Is Iata</label>
+            <input type="checkbox" class="form-control" name="isIata" id="field_isIata"
+                [(ngModel)]="agency.isIata" />
+            <div [hidden]="!(editForm.controls.isIata?.dirty && editForm.controls.isIata?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.isIata?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.logo" for="field_logo">Logo</label>
+            <div>
+                <div *ngIf="agency.logo" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(agency.logoContentType, agency.logo)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{agency.logoContentType}}, {{byteSize(agency.logo)}}</span>
+                    <button type="button" (click)="agency.logo=null;agency.logoContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_logo" (change)="setFileData($event, agency, 'logo', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                [(ngModel)]="agency.logo" required/>
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                [(ngModel)]="agency.logoContentType" />
+            <div [hidden]="!(editForm.controls.logo?.dirty && editForm.controls.logo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.logo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="agency.email" required/>
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                [(ngModel)]="agency.phone" required/>
+            <div [hidden]="!(editForm.controls.phone?.dirty && editForm.controls.phone?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.phone?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.agency.address" for="field_address">Address</label>
+            <input type="text" class="form-control" name="address" id="field_address"
+                [(ngModel)]="agency.address" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBookingLabel" jhiTranslate="spaceBookApp.booking.home.createOrEditLabel">Create or edit a Booking</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!booking.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="booking.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.booking.pnr" for="field_pnr">Pnr</label>
+            <input type="text" class="form-control" name="pnr" id="field_pnr"
+                [(ngModel)]="booking.pnr" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.booking.formOfPayment" for="field_formOfPayment">Form Of Payment</label>
+            <select class="form-control" name="formOfPayment" [(ngModel)]="booking.formOfPayment" id="field_formOfPayment" >
+                <option value="CASH">{{'spaceBookApp.FormOfPayment.CASH' | translate}}</option>
+                <option value="CHECK">{{'spaceBookApp.FormOfPayment.CHECK' | translate}}</option>
+                <option value="CREDITCARD">{{'spaceBookApp.FormOfPayment.CREDITCARD' | translate}}</option>
+                <option value="ENETT">{{'spaceBookApp.FormOfPayment.ENETT' | translate}}</option>
+                <option value="OTHER">{{'spaceBookApp.FormOfPayment.OTHER' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.booking.cost" for="field_cost">Cost</label>
+            <input type="number" class="form-control" name="cost" id="field_cost"
+                [(ngModel)]="booking.cost" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

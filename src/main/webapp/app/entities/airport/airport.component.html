@@ -1,0 +1,91 @@
+<div>
+    <h2>
+        <span jhiTranslate="spaceBookApp.airport.home.title">Airports</span>
+        <button class="btn btn-primary float-right jh-create-entity create-airport" [routerLink]="['/', { outlets: { popup: ['airport-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="spaceBookApp.airport.home.createLabel">
+            Create new Airport
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'spaceBookApp.airport.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="airports">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="spaceBookApp.airport.name">Name</span></th>
+            <th><span jhiTranslate="spaceBookApp.airport.code">Code</span></th>
+            <th><span jhiTranslate="spaceBookApp.airport.origin">Origin</span></th>
+            <th><span jhiTranslate="spaceBookApp.airport.destination">Destination</span></th>
+            <th><span jhiTranslate="spaceBookApp.airport.airport">Airport</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let airport of airports ;trackBy: trackId">
+                <td><a [routerLink]="['../airport', airport.id ]">{{airport.id}}</a></td>
+                <td>{{airport.name}}</td>
+                <td>{{airport.code}}</td>
+                <td>
+                    <div *ngIf="airport.origin">
+                        <a [routerLink]="['../segment', airport.origin?.id ]" >{{airport.origin?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="airport.destination">
+                        <a [routerLink]="['../segment', airport.destination?.id ]" >{{airport.destination?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="airport.airport">
+                        <a [routerLink]="['../town', airport.airport?.id ]" >{{airport.airport?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../airport', airport.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'airport/'+ airport.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'airport/'+ airport.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

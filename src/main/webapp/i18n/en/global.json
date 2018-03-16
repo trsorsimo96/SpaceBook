@@ -7,6 +7,23 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "airline": "Airline",
+                "agency": "Agency",
+                "agent": "Agent",
+                "corporate": "Corporate",
+                "passenger": "Passenger",
+                "airLoyalty": "Air Loyalty",
+                "groupAirlineAlliance": "Group Airline Alliance",
+                "country": "Country",
+                "currency": "Currency",
+                "airport": "Airport",
+                "town": "Town",
+                "segment": "Segment",
+                "phoneInBooking": "Phone In Booking",
+                "emailInBooking": "Email In Booking",
+                "addressInBooking": "Address In Booking",
+                "configFees": "Config Fees",
+                "booking": "Booking",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

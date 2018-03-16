@@ -5,6 +5,34 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094011_added_entity_Airline.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094012_added_entity_Agency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094013_added_entity_Agent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094014_added_entity_Corporate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094015_added_entity_Passenger.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094016_added_entity_AirLoyalty.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094017_added_entity_GroupAirlineAlliance.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094018_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094019_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094020_added_entity_Airport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094021_added_entity_Town.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094022_added_entity_Segment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094023_added_entity_PhoneInBooking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094024_added_entity_EmailInBooking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094025_added_entity_AddressInBooking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094026_added_entity_ConfigFees.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094027_added_entity_Booking.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180316094011_added_entity_constraints_Airline.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094013_added_entity_constraints_Agent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094015_added_entity_constraints_Passenger.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094016_added_entity_constraints_AirLoyalty.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094018_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094019_added_entity_constraints_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094020_added_entity_constraints_Airport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094021_added_entity_constraints_Town.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094023_added_entity_constraints_PhoneInBooking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094024_added_entity_constraints_EmailInBooking.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180316094025_added_entity_constraints_AddressInBooking.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

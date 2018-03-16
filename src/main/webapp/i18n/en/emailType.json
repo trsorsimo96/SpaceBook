@@ -1,0 +1,9 @@
+{
+    "spaceBookApp": {
+        "EmailType" : {
+            "null": "",
+            "TO": "TO",
+            "FROM": "FROM"
+        }
+    }
+}

@@ -1,0 +1,100 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAddressInBookingLabel" jhiTranslate="spaceBookApp.addressInBooking.home.createOrEditLabel">Create or edit a Address In Booking</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!addressInBooking.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="addressInBooking.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.customerName" for="field_customerName">Customer Name</label>
+            <input type="text" class="form-control" name="customerName" id="field_customerName"
+                [(ngModel)]="addressInBooking.customerName" required/>
+            <div [hidden]="!(editForm.controls.customerName?.dirty && editForm.controls.customerName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.customerName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.streetAddress1" for="field_streetAddress1">Street Address 1</label>
+            <input type="text" class="form-control" name="streetAddress1" id="field_streetAddress1"
+                [(ngModel)]="addressInBooking.streetAddress1" required/>
+            <div [hidden]="!(editForm.controls.streetAddress1?.dirty && editForm.controls.streetAddress1?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.streetAddress1?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.streetAddress2" for="field_streetAddress2">Street Address 2</label>
+            <input type="text" class="form-control" name="streetAddress2" id="field_streetAddress2"
+                [(ngModel)]="addressInBooking.streetAddress2" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                [(ngModel)]="addressInBooking.city" required/>
+            <div [hidden]="!(editForm.controls.city?.dirty && editForm.controls.city?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.city?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.state" for="field_state">State</label>
+            <input type="text" class="form-control" name="state" id="field_state"
+                [(ngModel)]="addressInBooking.state" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.zip" for="field_zip">Zip</label>
+            <input type="text" class="form-control" name="zip" id="field_zip"
+                [(ngModel)]="addressInBooking.zip" required/>
+            <div [hidden]="!(editForm.controls.zip?.dirty && editForm.controls.zip?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.zip?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.typeAddress" for="field_typeAddress">Type Address</label>
+            <select class="form-control" name="typeAddress" [(ngModel)]="addressInBooking.typeAddress" id="field_typeAddress" >
+                <option value="CUSTOMER">{{'spaceBookApp.TypeAddress.CUSTOMER' | translate}}</option>
+                <option value="DELIVERY">{{'spaceBookApp.TypeAddress.DELIVERY' | translate}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.address" for="field_address">Address</label>
+            <select class="form-control" id="field_address" name="address" [(ngModel)]="addressInBooking.address" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="countryOption.id === addressInBooking.address?.id ? addressInBooking.address : countryOption" *ngFor="let countryOption of countries; trackBy: trackCountryById">{{countryOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="spaceBookApp.addressInBooking.address" for="field_address">Address</label>
+            <select class="form-control" id="field_address" name="address" [(ngModel)]="addressInBooking.address" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="bookingOption.id === addressInBooking.address?.id ? addressInBooking.address : bookingOption" *ngFor="let bookingOption of bookings; trackBy: trackBookingById">{{bookingOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
