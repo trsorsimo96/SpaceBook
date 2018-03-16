@@ -1,0 +1,19 @@
+version: '2'
+services:
+    spacebook-app:
+        image: spacebook
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://spacebook-mysql:3306/spacebook?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=spacebook-elasticsearch:9300
+        ports:
+            - 8080:8080
+    spacebook-mysql:
+        extends:
+            file: mysql.yml
+            service: spacebook-mysql
+    spacebook-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: spacebook-elasticsearch
