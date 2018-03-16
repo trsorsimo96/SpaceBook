@@ -1,0 +1,195 @@
+entity Airline {
+     code String required,
+     name String required,
+     description String, 
+     logo Blob required
+}
+
+entity Agency {
+	PCC String required,
+    name String required,
+    codeIata String,
+    isIata Boolean required,
+    logo Blob required  
+    email String required,
+    phone String required,
+    address String
+}
+
+entity Agent {
+	name String required,
+    surname String required,
+    email String required,
+    clientId String required,
+    signOnCode String required,
+}
+
+enum TitlePassenger {
+    MR, MRS, MISS
+}
+
+enum TypePassenger {
+    ADT, CHD, INF
+}
+
+entity Corporate{
+    name String required,
+    email String required
+    address String,
+    phone String,
+}
+
+
+entity Passenger {
+    name String required,
+    surname String required,
+    middlename  String,
+    nameRemark String,
+    title TitlePassenger,
+    type TypePassenger
+    age Integer,
+    birthday LocalDate,
+    passportNumber String
+    
+}
+
+entity AirLoyalty{
+    number String required,
+    
+}
+
+entity GroupAirlineAlliance{
+	name String required,
+    code String required
+}
+
+entity Country {
+   name String required,
+   code String required
+   capital String
+}
+
+entity Currency{
+	name String required,
+    code String required
+}
+
+entity Airport {
+	name String required,
+    code String required
+}
+
+entity Town {	
+	name String required,
+    code String required
+}
+
+relationship ManyToOne {
+	Agent{agency} to Agency,
+    Passenger{enterprise} to Corporate,
+    Airline{group} to GroupAirlineAlliance,
+    AirLoyalty {airline} to Airline,
+    Airport{town} to Town,
+    Town{country} to Country,
+    Country{currency} to Currency,
+    Passenger{booking} to Booking,
+    Town{phone} to PhoneInBooking
+    PhoneInBooking{booking} to Booking,
+    EmailInBooking{booking} to Booking,
+    AddressInBooking{country} to Country
+    AddressInBooking{booking} to Booking
+    Currency{booking} to Booking
+    Airline{segment} to Segment,
+    Airline{configFees} to ConfigFees
+}
+
+entity Segment {
+	date LocalDate
+
+}
+
+entity PhoneInBooking{
+	phoneType PhoneType required,
+    number String required
+}
+
+entity EmailInBooking{
+	emailType EmailType required,
+    email String required
+}
+
+entity AddressInBooking{
+	customerName String required,
+    streetAddress1 String required,
+    streetAddress2 String,
+    city String required,
+    state String,
+    zip String required
+    typeAddress TypeAddress
+}
+
+entity ConfigFees{
+	fees Integer required
+}
+
+
+
+
+entity Booking {
+	pnr String,
+ 	formOfPayment FormOfPayment,
+    cost Integer
+}
+
+enum PhoneType {
+    ACCOMODATION, AGENCY, EMAIL, FAX, HOME, MOBILE, NOCONTACT, OTHER, WORK
+}
+
+enum EmailType {
+    TO, FROM
+}
+
+enum TypeAddress{
+	CUSTOMER, DELIVERY
+}
+
+enum FormOfPayment{
+	CASH, CHECK, CREDITCARD, ENETT, OTHER
+}
+ 
+
+
+
+relationship OneToOne {
+	Airport{origin} to Segment,
+    Airport{destination} to Segment,
+    AirLoyalty{card} to Passenger
+}
+
+//relationship OneToOne {
+	//Location{country} to Country
+//}
+
+//relationship OneToOne {
+	//Department{location} to Location
+//}
+
+//relationship ManyToMany {
+	//Job{task(title)} to Task{job}
+//}
+
+// defining multiple OneToMany relationships with comments
+//relationship OneToMany {
+	//Employee{job} to Job,
+	/**
+	* A relationship
+	*/
+	//Department{employee} to
+	/**
+	* Another side of the same relationship
+	*/
+	//Employee
+//}
+
+
+
