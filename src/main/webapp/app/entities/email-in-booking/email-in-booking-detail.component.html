@@ -1,0 +1,36 @@
+
+<div *ngIf="emailInBooking">
+    <h2><span jhiTranslate="spaceBookApp.emailInBooking.detail.title">Email In Booking</span> {{emailInBooking.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.emailInBooking.emailType">Email Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'spaceBookApp.EmailType.' + emailInBooking.emailType}}">{{emailInBooking.emailType}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.emailInBooking.email">Email</span></dt>
+        <dd>
+            <span>{{emailInBooking.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.emailInBooking.booking">Booking</span></dt>
+        <dd>
+            <div *ngIf="emailInBooking.booking">
+                <a [routerLink]="['/booking', emailInBooking.booking?.id]">{{emailInBooking.booking?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'email-in-booking/'+ emailInBooking.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

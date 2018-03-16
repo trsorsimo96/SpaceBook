@@ -1,0 +1,70 @@
+
+<div *ngIf="passenger">
+    <h2><span jhiTranslate="spaceBookApp.passenger.detail.title">Passenger</span> {{passenger.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.passenger.name">Name</span></dt>
+        <dd>
+            <span>{{passenger.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.surname">Surname</span></dt>
+        <dd>
+            <span>{{passenger.surname}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.middlename">Middlename</span></dt>
+        <dd>
+            <span>{{passenger.middlename}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.nameRemark">Name Remark</span></dt>
+        <dd>
+            <span>{{passenger.nameRemark}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.title">Title</span></dt>
+        <dd>
+            <span jhiTranslate="{{'spaceBookApp.TitlePassenger.' + passenger.title}}">{{passenger.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'spaceBookApp.TypePassenger.' + passenger.type}}">{{passenger.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.age">Age</span></dt>
+        <dd>
+            <span>{{passenger.age}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.birthday">Birthday</span></dt>
+        <dd>
+            <span>{{passenger.birthday | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.passportNumber">Passport Number</span></dt>
+        <dd>
+            <span>{{passenger.passportNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.enterprise">Enterprise</span></dt>
+        <dd>
+            <div *ngIf="passenger.enterprise">
+                <a [routerLink]="['/corporate', passenger.enterprise?.id]">{{passenger.enterprise?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.passenger.booking">Booking</span></dt>
+        <dd>
+            <div *ngIf="passenger.booking">
+                <a [routerLink]="['/booking', passenger.booking?.id]">{{passenger.booking?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'passenger/'+ passenger.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

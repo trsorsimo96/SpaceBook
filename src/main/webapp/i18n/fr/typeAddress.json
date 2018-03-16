@@ -1,0 +1,9 @@
+{
+    "spaceBookApp": {
+        "TypeAddress" : {
+            "null": "",
+            "CUSTOMER": "CUSTOMER",
+            "DELIVERY": "DELIVERY"
+        }
+    }
+}

@@ -1,0 +1,99 @@
+<div>
+    <h2>
+        <span jhiTranslate="spaceBookApp.passenger.home.title">Passengers</span>
+        <button class="btn btn-primary float-right jh-create-entity create-passenger" [routerLink]="['/', { outlets: { popup: ['passenger-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="spaceBookApp.passenger.home.createLabel">
+            Create new Passenger
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'spaceBookApp.passenger.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="passengers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.name">Name</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.surname">Surname</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.middlename">Middlename</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.nameRemark">Name Remark</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.title">Title</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.type">Type</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.age">Age</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.birthday">Birthday</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.passportNumber">Passport Number</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.enterprise">Enterprise</span></th>
+            <th><span jhiTranslate="spaceBookApp.passenger.booking">Booking</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let passenger of passengers ;trackBy: trackId">
+                <td><a [routerLink]="['../passenger', passenger.id ]">{{passenger.id}}</a></td>
+                <td>{{passenger.name}}</td>
+                <td>{{passenger.surname}}</td>
+                <td>{{passenger.middlename}}</td>
+                <td>{{passenger.nameRemark}}</td>
+                <td jhiTranslate="{{'spaceBookApp.TitlePassenger.' + passenger.title}}">{{passenger.title}}</td>
+                <td jhiTranslate="{{'spaceBookApp.TypePassenger.' + passenger.type}}">{{passenger.type}}</td>
+                <td>{{passenger.age}}</td>
+                <td>{{passenger.birthday | date:'mediumDate'}}</td>
+                <td>{{passenger.passportNumber}}</td>
+                <td>
+                    <div *ngIf="passenger.enterprise">
+                        <a [routerLink]="['../corporate', passenger.enterprise?.id ]" >{{passenger.enterprise?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="passenger.booking">
+                        <a [routerLink]="['../booking', passenger.booking?.id ]" >{{passenger.booking?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../passenger', passenger.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'passenger/'+ passenger.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'passenger/'+ passenger.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

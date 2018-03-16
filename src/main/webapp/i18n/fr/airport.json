@@ -1,0 +1,27 @@
+
+{
+    "spaceBookApp": {
+        "airport" : {
+            "home": {
+                "title": "Airports",
+                "createLabel": "Créer un nouveau Airport",
+                "createOrEditLabel": "Créer ou éditer un Airport",
+                "search": "Recherche pour Airport"
+            },
+            "created": "Un nouveau Airport a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Airport avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Airport avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Airport {{ id }} ?"
+            },
+            "detail": {
+                "title": "Airport"
+            },
+            "name": "Name",
+            "code": "Code",
+            "origin": "Origin",
+            "destination": "Destination",
+            "town": "Town"
+        }
+    }
+}

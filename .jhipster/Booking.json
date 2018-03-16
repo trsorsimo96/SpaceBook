@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "pnr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formOfPayment",
+            "fieldType": "FormOfPayment",
+            "fieldValues": "CASH,CHECK,CREDITCARD,ENETT,OTHER"
+        },
+        {
+            "fieldName": "cost",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180316095622",
+    "entityTableName": "booking",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

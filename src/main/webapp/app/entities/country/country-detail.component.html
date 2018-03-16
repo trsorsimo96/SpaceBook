@@ -1,0 +1,40 @@
+
+<div *ngIf="country">
+    <h2><span jhiTranslate="spaceBookApp.country.detail.title">Country</span> {{country.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.country.name">Name</span></dt>
+        <dd>
+            <span>{{country.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.country.code">Code</span></dt>
+        <dd>
+            <span>{{country.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.country.capital">Capital</span></dt>
+        <dd>
+            <span>{{country.capital}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.country.currency">Currency</span></dt>
+        <dd>
+            <div *ngIf="country.currency">
+                <a [routerLink]="['/currency', country.currency?.id]">{{country.currency?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'country/'+ country.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

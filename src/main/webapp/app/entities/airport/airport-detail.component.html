@@ -1,0 +1,48 @@
+
+<div *ngIf="airport">
+    <h2><span jhiTranslate="spaceBookApp.airport.detail.title">Airport</span> {{airport.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.airport.name">Name</span></dt>
+        <dd>
+            <span>{{airport.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airport.code">Code</span></dt>
+        <dd>
+            <span>{{airport.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airport.origin">Origin</span></dt>
+        <dd>
+            <div *ngIf="airport.origin">
+                <a [routerLink]="['/segment', airport.origin?.id]">{{airport.origin?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airport.destination">Destination</span></dt>
+        <dd>
+            <div *ngIf="airport.destination">
+                <a [routerLink]="['/segment', airport.destination?.id]">{{airport.destination?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airport.town">Town</span></dt>
+        <dd>
+            <div *ngIf="airport.town">
+                <a [routerLink]="['/town', airport.town?.id]">{{airport.town?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'airport/'+ airport.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
