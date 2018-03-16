@@ -43,6 +43,23 @@ public class CacheConfiguration {
             cm.createCache(com.space.book.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.space.book.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.space.book.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Airline.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Agency.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Agent.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Corporate.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Passenger.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.AirLoyalty.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.GroupAirlineAlliance.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Country.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Currency.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Airport.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Town.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Segment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.PhoneInBooking.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.EmailInBooking.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.AddressInBooking.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.ConfigFees.class.getName(), jcacheConfiguration);
+            cm.createCache(com.space.book.domain.Booking.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,59 @@
+
+<div *ngIf="airline">
+    <h2><span jhiTranslate="spaceBookApp.airline.detail.title">Airline</span> {{airline.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.airline.code">Code</span></dt>
+        <dd>
+            <span>{{airline.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airline.name">Name</span></dt>
+        <dd>
+            <span>{{airline.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airline.description">Description</span></dt>
+        <dd>
+            <span>{{airline.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airline.logo">Logo</span></dt>
+        <dd>
+            <div *ngIf="airline.logo">
+                <a (click)="openFile(airline.logoContentType, airline.logo)" jhiTranslate="entity.action.open">open</a>
+                {{airline.logoContentType}}, {{byteSize(airline.logo)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airline.group">Group</span></dt>
+        <dd>
+            <div *ngIf="airline.group">
+                <a [routerLink]="['/group-airline-alliance', airline.group?.id]">{{airline.group?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airline.segment">Segment</span></dt>
+        <dd>
+            <div *ngIf="airline.segment">
+                <a [routerLink]="['/segment', airline.segment?.id]">{{airline.segment?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airline.configFees">Config Fees</span></dt>
+        <dd>
+            <div *ngIf="airline.configFees">
+                <a [routerLink]="['/config-fees', airline.configFees?.id]">{{airline.configFees?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'airline/'+ airline.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,26 @@
+
+{
+    "spaceBookApp": {
+        "corporate" : {
+            "home": {
+                "title": "Corporates",
+                "createLabel": "Créer un nouveau Corporate",
+                "createOrEditLabel": "Créer ou éditer un Corporate",
+                "search": "Recherche pour Corporate"
+            },
+            "created": "Un nouveau Corporate a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Corporate avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Corporate avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Corporate {{ id }} ?"
+            },
+            "detail": {
+                "title": "Corporate"
+            },
+            "name": "Name",
+            "email": "Email",
+            "address": "Address",
+            "phone": "Phone"
+        }
+    }
+}

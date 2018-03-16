@@ -1,0 +1,30 @@
+
+<div *ngIf="groupAirlineAlliance">
+    <h2><span jhiTranslate="spaceBookApp.groupAirlineAlliance.detail.title">Group Airline Alliance</span> {{groupAirlineAlliance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.groupAirlineAlliance.name">Name</span></dt>
+        <dd>
+            <span>{{groupAirlineAlliance.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.groupAirlineAlliance.code">Code</span></dt>
+        <dd>
+            <span>{{groupAirlineAlliance.code}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'group-airline-alliance/'+ groupAirlineAlliance.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

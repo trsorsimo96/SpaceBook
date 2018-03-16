@@ -1,0 +1,48 @@
+
+<div *ngIf="agent">
+    <h2><span jhiTranslate="spaceBookApp.agent.detail.title">Agent</span> {{agent.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.agent.name">Name</span></dt>
+        <dd>
+            <span>{{agent.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agent.surname">Surname</span></dt>
+        <dd>
+            <span>{{agent.surname}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agent.email">Email</span></dt>
+        <dd>
+            <span>{{agent.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agent.clientId">Client Id</span></dt>
+        <dd>
+            <span>{{agent.clientId}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agent.signOnCode">Sign On Code</span></dt>
+        <dd>
+            <span>{{agent.signOnCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.agent.agency">Agency</span></dt>
+        <dd>
+            <div *ngIf="agent.agency">
+                <a [routerLink]="['/agency', agent.agency?.id]">{{agent.agency?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'agent/'+ agent.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

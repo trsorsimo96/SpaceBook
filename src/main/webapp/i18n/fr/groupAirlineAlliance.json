@@ -1,0 +1,24 @@
+
+{
+    "spaceBookApp": {
+        "groupAirlineAlliance" : {
+            "home": {
+                "title": "GroupAirlineAlliances",
+                "createLabel": "Créer un nouveau Group Airline Alliance",
+                "createOrEditLabel": "Créer ou éditer un Group Airline Alliance",
+                "search": "Recherche pour Group Airline Alliance"
+            },
+            "created": "Un nouveau Group Airline Alliance a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Group Airline Alliance avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Group Airline Alliance avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Group Airline Alliance {{ id }} ?"
+            },
+            "detail": {
+                "title": "Group Airline Alliance"
+            },
+            "name": "Name",
+            "code": "Code"
+        }
+    }
+}

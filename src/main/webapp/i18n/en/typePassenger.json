@@ -1,0 +1,10 @@
+{
+    "spaceBookApp": {
+        "TypePassenger" : {
+            "null": "",
+            "ADT": "ADT",
+            "CHD": "CHD",
+            "INF": "INF"
+        }
+    }
+}

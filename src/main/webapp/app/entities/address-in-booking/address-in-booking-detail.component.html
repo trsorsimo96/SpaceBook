@@ -1,0 +1,62 @@
+
+<div *ngIf="addressInBooking">
+    <h2><span jhiTranslate="spaceBookApp.addressInBooking.detail.title">Address In Booking</span> {{addressInBooking.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.customerName">Customer Name</span></dt>
+        <dd>
+            <span>{{addressInBooking.customerName}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.streetAddress1">Street Address 1</span></dt>
+        <dd>
+            <span>{{addressInBooking.streetAddress1}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.streetAddress2">Street Address 2</span></dt>
+        <dd>
+            <span>{{addressInBooking.streetAddress2}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.city">City</span></dt>
+        <dd>
+            <span>{{addressInBooking.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.state">State</span></dt>
+        <dd>
+            <span>{{addressInBooking.state}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.zip">Zip</span></dt>
+        <dd>
+            <span>{{addressInBooking.zip}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.typeAddress">Type Address</span></dt>
+        <dd>
+            <span jhiTranslate="{{'spaceBookApp.TypeAddress.' + addressInBooking.typeAddress}}">{{addressInBooking.typeAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.country">Country</span></dt>
+        <dd>
+            <div *ngIf="addressInBooking.country">
+                <a [routerLink]="['/country', addressInBooking.country?.id]">{{addressInBooking.country?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.addressInBooking.booking">Booking</span></dt>
+        <dd>
+            <div *ngIf="addressInBooking.booking">
+                <a [routerLink]="['/booking', addressInBooking.booking?.id]">{{addressInBooking.booking?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'address-in-booking/'+ addressInBooking.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
