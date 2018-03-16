@@ -1,0 +1,31 @@
+
+{
+    "spaceBookApp": {
+        "addressInBooking" : {
+            "home": {
+                "title": "Address In Bookings",
+                "createLabel": "Create a new Address In Booking",
+                "createOrEditLabel": "Create or edit a Address In Booking",
+                "search": "Search for Address In Booking"
+            },
+            "created": "A new Address In Booking is created with identifier {{ param }}",
+            "updated": "A Address In Booking is updated with identifier {{ param }}",
+            "deleted": "A Address In Booking is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Address In Booking {{ id }}?"
+            },
+            "detail": {
+                "title": "Address In Booking"
+            },
+            "customerName": "Customer Name",
+            "streetAddress1": "Street Address 1",
+            "streetAddress2": "Street Address 2",
+            "city": "City",
+            "state": "State",
+            "zip": "Zip",
+            "typeAddress": "Type Address",
+            "address": "Address",
+            "address": "Address"
+        }
+    }
+}

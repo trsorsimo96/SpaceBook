@@ -1,0 +1,25 @@
+
+{
+    "spaceBookApp": {
+        "phoneInBooking" : {
+            "home": {
+                "title": "PhoneInBookings",
+                "createLabel": "Créer un nouveau Phone In Booking",
+                "createOrEditLabel": "Créer ou éditer un Phone In Booking",
+                "search": "Recherche pour Phone In Booking"
+            },
+            "created": "Un nouveau Phone In Booking a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Phone In Booking avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Phone In Booking avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Phone In Booking {{ id }} ?"
+            },
+            "detail": {
+                "title": "Phone In Booking"
+            },
+            "phoneType": "Phone Type",
+            "number": "Number",
+            "phones": "Phones"
+        }
+    }
+}

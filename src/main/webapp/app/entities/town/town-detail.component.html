@@ -1,0 +1,42 @@
+
+<div *ngIf="town">
+    <h2><span jhiTranslate="spaceBookApp.town.detail.title">Town</span> {{town.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.town.name">Name</span></dt>
+        <dd>
+            <span>{{town.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.town.code">Code</span></dt>
+        <dd>
+            <span>{{town.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.town.town">Town</span></dt>
+        <dd>
+            <div *ngIf="town.town">
+                <a [routerLink]="['/country', town.town?.id]">{{town.town?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.town.city">City</span></dt>
+        <dd>
+            <div *ngIf="town.city">
+                <a [routerLink]="['/phone-in-booking', town.city?.id]">{{town.city?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'town/'+ town.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

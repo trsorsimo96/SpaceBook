@@ -1,0 +1,25 @@
+
+{
+    "spaceBookApp": {
+        "emailInBooking" : {
+            "home": {
+                "title": "EmailInBookings",
+                "createLabel": "Créer un nouveau Email In Booking",
+                "createOrEditLabel": "Créer ou éditer un Email In Booking",
+                "search": "Recherche pour Email In Booking"
+            },
+            "created": "Un nouveau Email In Booking a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Email In Booking avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Email In Booking avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Email In Booking {{ id }} ?"
+            },
+            "detail": {
+                "title": "Email In Booking"
+            },
+            "emailType": "Email Type",
+            "email": "Email",
+            "emails": "Emails"
+        }
+    }
+}

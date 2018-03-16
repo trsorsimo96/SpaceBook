@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Airline.
+    -->
+    <changeSet id="20180316094011-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="member_id"
+                                 baseTableName="airline"
+                                 constraintName="fk_airline_member_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="group_airline_alliance"/>
+
+        <addForeignKeyConstraint baseColumnNames="airline_id"
+                                 baseTableName="airline"
+                                 constraintName="fk_airline_airline_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="segment"/>
+
+        <addForeignKeyConstraint baseColumnNames="airline_id"
+                                 baseTableName="airline"
+                                 constraintName="fk_airline_airline_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="config_fees"/>
+
+    </changeSet>
+</databaseChangeLog>

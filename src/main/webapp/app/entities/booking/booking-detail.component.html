@@ -1,0 +1,34 @@
+
+<div *ngIf="booking">
+    <h2><span jhiTranslate="spaceBookApp.booking.detail.title">Booking</span> {{booking.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.booking.pnr">Pnr</span></dt>
+        <dd>
+            <span>{{booking.pnr}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.booking.formOfPayment">Form Of Payment</span></dt>
+        <dd>
+            <span jhiTranslate="{{'spaceBookApp.FormOfPayment.' + booking.formOfPayment}}">{{booking.formOfPayment}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.booking.cost">Cost</span></dt>
+        <dd>
+            <span>{{booking.cost}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'booking/'+ booking.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

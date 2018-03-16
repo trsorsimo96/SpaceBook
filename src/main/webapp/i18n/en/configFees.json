@@ -1,0 +1,23 @@
+
+{
+    "spaceBookApp": {
+        "configFees" : {
+            "home": {
+                "title": "Config Fees",
+                "createLabel": "Create a new Config Fees",
+                "createOrEditLabel": "Create or edit a Config Fees",
+                "search": "Search for Config Fees"
+            },
+            "created": "A new Config Fees is created with identifier {{ param }}",
+            "updated": "A Config Fees is updated with identifier {{ param }}",
+            "deleted": "A Config Fees is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Config Fees {{ id }}?"
+            },
+            "detail": {
+                "title": "Config Fees"
+            },
+            "fees": "Fees"
+        }
+    }
+}

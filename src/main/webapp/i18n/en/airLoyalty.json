@@ -1,0 +1,25 @@
+
+{
+    "spaceBookApp": {
+        "airLoyalty" : {
+            "home": {
+                "title": "Air Loyalties",
+                "createLabel": "Create a new Air Loyalty",
+                "createOrEditLabel": "Create or edit a Air Loyalty",
+                "search": "Search for Air Loyalty"
+            },
+            "created": "A new Air Loyalty is created with identifier {{ param }}",
+            "updated": "A Air Loyalty is updated with identifier {{ param }}",
+            "deleted": "A Air Loyalty is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Air Loyalty {{ id }}?"
+            },
+            "detail": {
+                "title": "Air Loyalty"
+            },
+            "number": "Number",
+            "card": "Card",
+            "card": "Card"
+        }
+    }
+}

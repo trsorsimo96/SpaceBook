@@ -1,0 +1,16 @@
+{
+    "spaceBookApp": {
+        "PhoneType" : {
+            "null": "",
+            "ACCOMODATION": "ACCOMODATION",
+            "AGENCY": "AGENCY",
+            "EMAIL": "EMAIL",
+            "FAX": "FAX",
+            "HOME": "HOME",
+            "MOBILE": "MOBILE",
+            "NOCONTACT": "NOCONTACT",
+            "OTHER": "OTHER",
+            "WORK": "WORK"
+        }
+    }
+}

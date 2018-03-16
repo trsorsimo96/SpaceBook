@@ -1,0 +1,23 @@
+
+{
+    "spaceBookApp": {
+        "configFees" : {
+            "home": {
+                "title": "ConfigFees",
+                "createLabel": "Créer un nouveau Config Fees",
+                "createOrEditLabel": "Créer ou éditer un Config Fees",
+                "search": "Recherche pour Config Fees"
+            },
+            "created": "Un nouveau Config Fees a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Config Fees avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Config Fees avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Config Fees {{ id }} ?"
+            },
+            "detail": {
+                "title": "Config Fees"
+            },
+            "fees": "Fees"
+        }
+    }
+}

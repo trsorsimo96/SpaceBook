@@ -1,0 +1,38 @@
+
+<div *ngIf="corporate">
+    <h2><span jhiTranslate="spaceBookApp.corporate.detail.title">Corporate</span> {{corporate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.corporate.name">Name</span></dt>
+        <dd>
+            <span>{{corporate.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.corporate.email">Email</span></dt>
+        <dd>
+            <span>{{corporate.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.corporate.address">Address</span></dt>
+        <dd>
+            <span>{{corporate.address}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.corporate.phone">Phone</span></dt>
+        <dd>
+            <span>{{corporate.phone}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'corporate/'+ corporate.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,30 @@
+
+{
+    "spaceBookApp": {
+        "agency" : {
+            "home": {
+                "title": "Agencies",
+                "createLabel": "Create a new Agency",
+                "createOrEditLabel": "Create or edit a Agency",
+                "search": "Search for Agency"
+            },
+            "created": "A new Agency is created with identifier {{ param }}",
+            "updated": "A Agency is updated with identifier {{ param }}",
+            "deleted": "A Agency is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Agency {{ id }}?"
+            },
+            "detail": {
+                "title": "Agency"
+            },
+            "pCC": "P CC",
+            "name": "Name",
+            "codeIata": "Code Iata",
+            "isIata": "Is Iata",
+            "logo": "Logo",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address"
+        }
+    }
+}

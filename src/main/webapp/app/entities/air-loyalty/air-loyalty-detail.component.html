@@ -1,0 +1,38 @@
+
+<div *ngIf="airLoyalty">
+    <h2><span jhiTranslate="spaceBookApp.airLoyalty.detail.title">Air Loyalty</span> {{airLoyalty.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="spaceBookApp.airLoyalty.number">Number</span></dt>
+        <dd>
+            <span>{{airLoyalty.number}}</span>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airLoyalty.card">Card</span></dt>
+        <dd>
+            <div *ngIf="airLoyalty.card">
+                <a [routerLink]="['/passenger', airLoyalty.card?.id]">{{airLoyalty.card?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="spaceBookApp.airLoyalty.card">Card</span></dt>
+        <dd>
+            <div *ngIf="airLoyalty.card">
+                <a [routerLink]="['/airline', airLoyalty.card?.id]">{{airLoyalty.card?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'air-loyalty/'+ airLoyalty.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

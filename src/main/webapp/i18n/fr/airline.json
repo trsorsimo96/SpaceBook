@@ -1,0 +1,29 @@
+
+{
+    "spaceBookApp": {
+        "airline" : {
+            "home": {
+                "title": "Airlines",
+                "createLabel": "Créer un nouveau Airline",
+                "createOrEditLabel": "Créer ou éditer un Airline",
+                "search": "Recherche pour Airline"
+            },
+            "created": "Un nouveau Airline a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Airline avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Airline avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Airline {{ id }} ?"
+            },
+            "detail": {
+                "title": "Airline"
+            },
+            "code": "Code",
+            "name": "Name",
+            "description": "Description",
+            "logo": "Logo",
+            "member": "Member",
+            "airline": "Airline",
+            "airline": "Airline"
+        }
+    }
+}
